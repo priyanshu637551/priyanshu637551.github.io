@@ -105,3 +105,23 @@ a:hover{
     font-size:22px;
     opacity:0.7;
 }
+ul.achievements{
+    list-style:none;
+    padding:0;
+}
+
+ul.achievements li{
+    margin:12px 0;
+}
+
+ul.achievements a{
+    color:#FBBC05;
+    border:none;
+    padding:0;
+}
+
+ul.achievements a:hover{
+    text-decoration:underline;
+    color:#34A853;
+}
+

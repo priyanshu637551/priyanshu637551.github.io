@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', () => {
+
 const modal = document.getElementById('drawerModal');
 const openBtn = document.getElementById('openDrawer');
 const closeBtn = document.getElementById('closeDrawer');
@@ -17,17 +19,24 @@ const colors = {
 canvas.width = 800;
 canvas.height = 400;
 
-openBtn.onclick = () => modal.style.display = 'flex';
-closeBtn.onclick = () => modal.style.display = 'none';
-
-document.querySelectorAll('.tools button[data-class]').forEach(btn=>{
-    btn.onclick = ()=> currentClass = btn.dataset.class;
+openBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
 });
 
-document.getElementById('clearCanvas').onclick = ()=>{
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+document.querySelectorAll('.tools button[data-class]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+        currentClass = btn.dataset.class;
+    });
+});
+
+document.getElementById('clearCanvas').addEventListener('click', ()=>{
     ctx.clearRect(0,0,canvas.width,canvas.height);
     dataPoints = [];
-};
+});
 
 canvas.addEventListener('click', e=>{
     const rect = canvas.getBoundingClientRect();
@@ -42,7 +51,7 @@ canvas.addEventListener('click', e=>{
     dataPoints.push({x, y, label: currentClass});
 });
 
-document.getElementById('downloadCSV').onclick = ()=>{
+document.getElementById('downloadCSV').addEventListener('click', ()=>{
     let csv = "x,y,label\n";
     dataPoints.forEach(p=>{
         csv += `${p.x},${p.y},${p.label}\n`;
@@ -55,4 +64,6 @@ document.getElementById('downloadCSV').onclick = ()=>{
     a.href = url;
     a.download = 'ml_data.csv';
     a.click();
-};
+});
+
+});

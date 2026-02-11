@@ -170,5 +170,46 @@ ul li{
     .card{padding:20px;}
 }
 
+/* Modal */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    justify-content:center;
+    align-items:center;
+    z-index:50;
+}
+
+.modal-content{
+    width:90%;
+    max-width:800px;
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+}
+
+#drawArea{
+    width:100%;
+    height:400px;
+    background:white;
+    border-radius:8px;
+    margin:15px 0;
+    cursor:crosshair;
+}
+
+.tools button,
+.actions button{
+    margin:5px;
+    padding:8px 12px;
+    border-radius:6px;
+    border:1px solid var(--accent);
+    background:none;
+    color:var(--accent);
+    cursor:pointer;
+}
 
 

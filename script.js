@@ -7,7 +7,12 @@ canvas.height = window.innerHeight;
 let particles = [];
 let mouse = {x: null, y: null};
 
-const colors = ['#4285F4','#EA4335','#FBBC05','#34A853'];
+function getColors(){
+    return document.body.classList.contains('light')
+    ? ['#1a73e8','#ea4335','#fbbc05','#34a853']
+    : ['#4285F4','#EA4335','#FBBC05','#34A853'];
+}
+
 
 window.addEventListener('mousemove', e => {
     mouse.x = e.x;
@@ -47,7 +52,7 @@ function animate(){
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-        ctx.fillStyle = p.color;
+        ctx.fillStyle = getColors()[Math.floor(Math.random()*4)];
         ctx.fill();
     });
 

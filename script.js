@@ -60,3 +60,19 @@ window.addEventListener('resize',()=>{
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+const toggleBtn = document.getElementById('themeToggle');
+
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    localStorage.setItem('theme',
+        document.body.classList.contains('light') ? 'light' : 'dark'
+    );
+});
+
+window.addEventListener('load',()=>{
+    if(localStorage.getItem('theme') === 'light'){
+        document.body.classList.add('light');
+    }
+});
+

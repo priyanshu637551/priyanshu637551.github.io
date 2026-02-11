@@ -1,232 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Priyanshu Sharma | Portfolio</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-
-body{
-    background:#060b18;
-    color:white;
-    overflow-x:hidden;
-}
-
-/* MATRIX / DOT CANVAS */
-canvas{
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:-1;
-}
-
-/* Left corner glow */
-body::before{
-    content:"";
-    position:fixed;
-    top:-150px;
-    left:-150px;
-    width:400px;
-    height:400px;
-    background:radial-gradient(circle,#00e5ff55,transparent 70%);
-    filter:blur(80px);
-}
-
-/* Container */
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:40px 20px;
-    text-align:center;
-}
-
-/* Profile */
-.profile img{
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    border:3px solid #ff0055;
-    box-shadow:0 0 25px #ff0055,0 0 50px #6a00ff;
-    margin-bottom:20px;
-}
-
-/* Heading fix */
-h1{
-    font-size:48px;
-    font-weight:700;
-    color:#ffffff;
-    text-shadow:0 0 12px #00e5ff,0 0 25px #00e5ff;
-}
-
-.subtitle{
-    margin-top:10px;
-    color:#c9d1ff;
-}
-
-/* Glass card with running border */
-.card{
-    position:relative;
-    margin:40px 0;
-    padding:30px;
-    border-radius:14px;
-    backdrop-filter:blur(18px);
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
-    overflow:hidden;
-}
-
-/* Neon running border */
-.card::before{
-    content:"";
-    position:absolute;
-    inset:-2px;
-    border-radius:16px;
-    padding:2px;
-    background:linear-gradient(90deg,#00e5ff,#6a00ff,#ff0055,#00e5ff);
-    background-size:300% 300%;
-    animation:borderMove 6s linear infinite;
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;
-            mask-composite:exclude;
-}
-
-@keyframes borderMove{
-    0%{background-position:0% 50%;}
-    100%{background-position:300% 50%;}
-}
-
-h2{
-    color:#ff4d6d;
-    margin-bottom:20px;
-}
-
-.about{
-    margin:25px auto;
-    max-width:750px;
-    color:#d6dcff;
-    line-height:1.7;
-}
-
-/* Buttons subtle solid */
-.button{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 20px;
-    border-radius:6px;
-    background:#10182b;
-    border:1px solid #00e5ff55;
-    color:white;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-.button:hover{
-    background:#16213e;
-    border-color:#00e5ff;
-    box-shadow:0 0 15px #00e5ff55;
-}
-
-ul{list-style:none;}
-li{margin:20px 0;}
-</style>
+    <meta charset="UTF-8">
+    <title>Priyanshu Sharma | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<canvas id="dots"></canvas>
+<canvas id="bg"></canvas>
 
 <div class="container">
 
-    <div class="profile">
-        <img src="profile.jpeg" alt="Priyanshu">
-    </div>
+    <div class="hero">
+        <img src="profile.jpeg" class="profile">
+        <h1>Hi, I'm Priyanshu 👋</h1>
+        <p class="subtitle">Data Science | Python | SQL | Machine Learning</p>
 
-    <h1>Hi, I'm Priyanshu 👋</h1>
-    <div class="subtitle">Data Science | Python | SQL | Machine Learning</div>
-
-    <div class="about">
-        I am deeply interested in data, analytics, and AI driven solutions.
-        I enjoy working on real datasets, extracting insights, and building intelligent systems using data.
+        <p class="about">
+            I am passionate about data, AI, and building intelligent systems from real world datasets.
+            I love extracting insights and turning data into meaningful solutions.
+        </p>
     </div>
 
     <div class="card">
         <h2>Projects</h2>
+
+        <div class="project">
+            <p>Swiggy Sales Analysis</p>
+            <a href="https://github.com/priyanshu637551/Swiggy_sales_analysis" target="_blank">View Project</a>
+        </div>
+
+        <div class="project">
+            <p>Student Burnout and Productivity Predictor</p>
+            <a href="https://github.com/priyanshu637551/Student-Burnout-and-Productivity-predictor" target="_blank">View Project</a>
+        </div>
+
+        <a class="allrepo" href="https://github.com/priyanshu637551?tab=repositories" target="_blank">
+            View All Repositories
+        </a>
+    </div>
+
+    <div class="card">
+        <h2>Achievements</h2>
         <ul>
-            <li>
-                Swiggy Sales Analysis<br>
-                <a class="button" href="https://github.com/priyanshu637551/Swiggy_sales_analysis" target="_blank">View Project</a>
-            </li>
-            <li>
-                Student Productivity Predictor<br>
-                <a class="button" href="https://github.com/priyanshu637551/Student-Burnout-and-Productivity-predictor" target="_blank">View Project</a>
-            </li>
+            <li>5★ on HackerRank and Advanced SQL Certificate</li>
+            <li>Oracle Cloud Generative AI Professional</li>
+            <li>Completed Google Machine Learning Course with all badges</li>
         </ul>
-        <a class="button" href="https://github.com/priyanshu637551?tab=repositories" target="_blank">View All Repositories</a>
     </div>
 
     <div class="card">
         <h2>Contact</h2>
         <p>Email: priyanshusharma8901@gmail.com</p>
-        <a class="button" href="https://github.com/priyanshu637551" target="_blank">GitHub Profile</a>
+        <a href="https://github.com/priyanshu637551" target="_blank">GitHub Profile</a>
+    </div>
+
+    <div class="coming">
+        🚀 More AI and Data projects coming soon
     </div>
 
 </div>
 
-<script>
-/* Cursor dots effect */
-const canvas = document.getElementById('dots');
-const ctx = canvas.getContext('2d');
+<script src="script.js"></script>
+</body>
+</html>
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let dots = [];
-for(let i=0;i<120;i++){
-    dots.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        r: Math.random()*2,
-        dx: Math.random()-0.5,
-        dy: Math.random()-0.5
-    });
-}
-
-let mouse = {x:null,y:null};
-
-window.addEventListener('mousemove',e=>{
-    mouse.x=e.x;
-    mouse.y=e.y;
-});
-
-function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    dots.forEach(d=>{
-        let dist = Math.hypot(d.x-mouse.x,d.y-mouse.y);
-        if(dist<120){
-            d.x += (d.x-mouse.x)/20;
-            d.y += (d.y-mouse.y)/20;
-        }
-        d.x+=d.dx;
-        d.y+=d.dy;
-
-        if(d.x<0||d.x>canvas.width) d.dx*=-1;
-        if(d.y<0||d.y>canvas.height) d.dy*=-1;
-
-        ctx.beginPath();
-        ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
-        ctx.fillStyle="#00e5ff";
-        ctx.fill();
-    });
-    requestAnimationFrame(animate);
-}
-animate();
-</script>
 
 </body>
 </html>

@@ -61,7 +61,7 @@ h1{
     border-radius:14px;
 
     /* more transparent glass */
-    background:rgba(255,255,255,0.025);
+    background:rgba(255,255,255,0.015);
     backdrop-filter:blur(22px);
     -webkit-backdrop-filter:blur(22px);
 

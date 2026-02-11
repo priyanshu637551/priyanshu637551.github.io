@@ -1,4 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+:root{
+    --bg:#0b0f1a;
+    --text:#ffffff;
+    --card-bg:rgba(255,255,255,0.025);
+    --card-border:rgba(255,255,255,0.06);
+    --accent:#4285F4;
+}
+
+body.light{
+    --bg:#f5f7fb;
+    --text:#111111;
+    --card-bg:rgba(255,255,255,0.7);
+    --card-border:rgba(0,0,0,0.08);
+    --accent:#1a73e8;
+}
+
 
 *{
     margin:0;
@@ -8,10 +24,12 @@
 }
 
 body{
-    background:#0b0f1a;
-    color:white;
+    background:var(--bg);
+    color:var(--text);
     overflow-x:hidden;
+    transition:background 0.4s,color 0.4s;
 }
+
 
 canvas{
     position:fixed;
@@ -40,7 +58,7 @@ canvas{
 
 h1{
     font-size:44px;
-    text-shadow:0 0 20px #4285F4;
+    text-shadow:0 0 20px var(--accent);
 }
 
 .subtitle{
@@ -59,14 +77,10 @@ h1{
     margin:40px 0;
     padding:30px;
     border-radius:14px;
-
-    /* more transparent glass */
-    background:rgba(255,255,255,0.015);
+    background:var(--card-bg);
     backdrop-filter:blur(22px);
-    -webkit-backdrop-filter:blur(22px);
-
-    border:1px solid rgba(255,255,255,0.06);
-    transition:0.3s;
+    border:1px solid var(--card-border);
+    transition:0.3s, background 0.4s, border 0.4s;
 }
 
 .card:hover{
@@ -91,18 +105,17 @@ h2{
 
 a{
     text-decoration:none;
-    color:#4285F4;
-    border:1px solid #4285F4;
+    color:var(--accent);
+    border:1px solid var(--accent);
     padding:8px 14px;
     border-radius:6px;
     display:inline-block;
     margin-top:8px;
     transition:0.3s;
 }
-
 a:hover{
-    background:#4285F4;
-    color:black;
+    background:var(--accent);
+    color:#fff;
 }
 
 .allrepo{

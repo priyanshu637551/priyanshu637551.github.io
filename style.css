@@ -1,20 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
 :root{
     --bg:#0b0f1a;
     --text:#ffffff;
-    --card-bg:rgba(255,255,255,0.025);
-    --card-border:rgba(255,255,255,0.06);
+    --muted:#cfd8ff;
+    --card-bg:rgba(255,255,255,0.03);
+    --card-border:rgba(255,255,255,0.08);
     --accent:#4285F4;
 }
 
 body.light{
-    --bg:#f5f7fb;
-    --text:#111111;
-    --card-bg:rgba(255,255,255,0.7);
+    --bg:#f4f7fb;
+    --text:#111;
+    --muted:#333;
+    --card-bg:rgba(255,255,255,0.85);
     --card-border:rgba(0,0,0,0.08);
     --accent:#1a73e8;
 }
-
 
 *{
     margin:0;
@@ -26,10 +28,9 @@ body.light{
 body{
     background:var(--bg);
     color:var(--text);
+    transition:0.4s;
     overflow-x:hidden;
-    transition:background 0.4s,color 0.4s;
 }
-
 
 canvas{
     position:fixed;
@@ -38,71 +39,60 @@ canvas{
     z-index:-1;
 }
 
+/* Container */
 .container{
-    width:90%;
+    width:92%;
     max-width:1000px;
     margin:auto;
     padding:40px 0;
     text-align:center;
 }
 
+/* Profile */
 .profile{
-    width:160px;
-    height:160px;
+    width:150px;
+    height:150px;
     border-radius:50%;
     object-fit:cover;
-    border:3px solid #4285F4;
-    box-shadow:0 0 25px #4285F4,0 0 60px #EA4335;
+    border:3px solid var(--accent);
+    box-shadow:0 0 30px var(--accent);
     margin-bottom:20px;
 }
 
+/* Text */
 h1{
-    font-size:44px;
-    text-shadow:0 0 20px var(--accent);
+    font-size:42px;
+    text-shadow:0 0 18px var(--accent);
 }
 
 .subtitle{
-    color:#cfd8ff;
+    color:var(--muted);
     margin:10px 0 20px;
 }
 
 .about{
-    max-width:700px;
+    max-width:720px;
     margin:auto;
-    line-height:1.6;
-    color:#dcdcff;
+    color:var(--muted);
+    line-height:1.7;
 }
 
+/* Cards */
 .card{
     margin:40px 0;
-    padding:30px;
-    border-radius:14px;
+    padding:28px;
+    border-radius:16px;
     background:var(--card-bg);
     backdrop-filter:blur(22px);
     border:1px solid var(--card-border);
-    transition:0.3s, background 0.4s, border 0.4s;
+    transition:0.3s;
 }
 
 .card:hover{
     transform:scale(1.02);
-    box-shadow:0 0 40px rgba(66,133,244,0.25);
 }
 
-
-.card:hover{
-    transform:scale(1.02);
-    box-shadow:0 0 40px #4285F455;
-}
-
-h2{
-    margin-bottom:20px;
-    color:#EA4335;
-}
-
-.project{
-    margin:20px 0;
-}
-
+/* Links */
 a{
     text-decoration:none;
     color:var(--accent);
@@ -110,45 +100,32 @@ a{
     padding:8px 14px;
     border-radius:6px;
     display:inline-block;
-    margin-top:8px;
+    margin-top:10px;
     transition:0.3s;
 }
+
 a:hover{
     background:var(--accent);
     color:#fff;
 }
 
-.allrepo{
-    margin-top:20px;
-    display:inline-block;
+/* Achievements */
+ul{
+    list-style:none;
 }
 
+ul li{
+    margin:12px 0;
+}
+
+/* Coming soon */
 .coming{
     margin:60px 0;
     font-size:22px;
     opacity:0.7;
 }
-ul.achievements{
-    list-style:none;
-    padding:0;
-}
 
-ul.achievements li{
-    margin:12px 0;
-}
-
-ul.achievements a{
-    color:#FBBC05;
-    border:none;
-    padding:0;
-}
-
-ul.achievements a:hover{
-    text-decoration:underline;
-    color:#34A853;
-}
-
-/* THEME TOGGLE BUTTON */
+/* Theme button */
 .theme-btn{
     position:fixed;
     top:20px;
@@ -156,25 +133,23 @@ ul.achievements a:hover{
     width:46px;
     height:46px;
     border-radius:50%;
-    border:1px solid rgba(255,255,255,0.2);
-    background:rgba(255,255,255,0.06);
+    border:1px solid var(--card-border);
+    background:var(--card-bg);
     backdrop-filter:blur(10px);
     cursor:pointer;
     z-index:20;
     display:flex;
     align-items:center;
     justify-content:center;
-    transition:0.4s;
 }
 
-/* Moon shape */
+/* Moon */
 .moon{
     width:18px;
     height:18px;
     border-radius:50%;
-    background:white;
+    background:var(--text);
     position:relative;
-    box-shadow:0 0 8px white;
 }
 
 .moon::after{
@@ -185,22 +160,15 @@ ul.achievements a:hover{
     width:18px;
     height:18px;
     border-radius:50%;
-    background:#0b0f1a;
+    background:var(--bg);
 }
 
-/* LIGHT MODE button inversion */
-body.light .theme-btn{
-    background:rgba(0,0,0,0.06);
-    border:1px solid rgba(0,0,0,0.2);
+/* Mobile Fix */
+@media(max-width:600px){
+    h1{font-size:30px;}
+    .about{font-size:14px;}
+    .card{padding:20px;}
 }
 
-body.light .moon{
-    background:#111;
-    box-shadow:0 0 8px #111;
-}
-
-body.light .moon::after{
-    background:#f5f7fb;
-}
 
 

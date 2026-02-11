@@ -16,26 +16,50 @@ const colors = {
     D:'#f1c40f'
 };
 
-canvas.width = 800;
-canvas.height = 400;
+function resizeCanvas(){
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    drawGrid();
+}
 
-openBtn.addEventListener('click', () => {
-    modal.style.display = 'flex';
+function drawGrid(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.strokeStyle="#ddd";
+    ctx.lineWidth=1;
+
+    for(let x=0;x<canvas.width;x+=25){
+        ctx.beginPath();
+        ctx.moveTo(x,0);
+        ctx.lineTo(x,canvas.height);
+        ctx.stroke();
+    }
+    for(let y=0;y<canvas.height;y+=25){
+        ctx.beginPath();
+        ctx.moveTo(0,y);
+        ctx.lineTo(canvas.width,y);
+        ctx.stroke();
+    }
+}
+
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+openBtn.addEventListener('click', ()=>{
+    modal.style.display='flex';
+    resizeCanvas();
 });
 
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
+closeBtn.addEventListener('click', ()=>{
+    modal.style.display='none';
 });
 
 document.querySelectorAll('.tools button[data-class]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-        currentClass = btn.dataset.class;
-    });
+    btn.addEventListener('click', ()=> currentClass = btn.dataset.class);
 });
 
 document.getElementById('clearCanvas').addEventListener('click', ()=>{
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    dataPoints = [];
+    drawGrid();
+    dataPoints=[];
 });
 
 canvas.addEventListener('click', e=>{
@@ -45,25 +69,28 @@ canvas.addEventListener('click', e=>{
 
     ctx.fillStyle = colors[currentClass];
     ctx.beginPath();
-    ctx.arc(x,y,5,0,Math.PI*2);
+    ctx.arc(x,y,6,0,Math.PI*2);
     ctx.fill();
 
     dataPoints.push({x, y, label: currentClass});
 });
 
 document.getElementById('downloadCSV').addEventListener('click', ()=>{
-    let csv = "x,y,label\n";
-    dataPoints.forEach(p=>{
-        csv += `${p.x},${p.y},${p.label}\n`;
-    });
+    if(dataPoints.length===0){
+        alert("Draw some points first");
+        return;
+    }
 
-    const blob = new Blob([csv], {type:'text/csv'});
+    const csvRows = ["x,y,label", ...dataPoints.map(p=>`${p.x},${p.y},${p.label}`)];
+    const blob = new Blob([csvRows.join("\n")], {type:'text/csv'});
     const url = URL.createObjectURL(blob);
 
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'ml_data.csv';
-    a.click();
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'ml_dataset.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 });
 
 });

@@ -231,18 +231,6 @@ ul li{
     justify-content:center;
     flex-wrap:wrap;
 }
-
-/* Mobile optimization */
-@media(max-width:600px){
-    .modal-content{
-        width:95%;
-        padding:18px;
-    }
-    .project-card{
-        max-height:90vh;
-    }
-}
-
 .project-actions button{
     padding:8px 14px;
     border-radius:8px;
@@ -257,6 +245,19 @@ ul li{
     border-color:var(--accent);
     color:var(--accent);
 }
+
+
+/* Mobile optimization */
+@media(max-width:600px){
+    .modal-content{
+        width:95%;
+        padding:18px;
+    }
+    .project-card{
+        max-height:90vh;
+    }
+}
+
 
 
 

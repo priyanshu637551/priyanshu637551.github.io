@@ -243,5 +243,20 @@ ul li{
     }
 }
 
+.project-actions button{
+    padding:8px 14px;
+    border-radius:8px;
+    border:1px solid var(--card-border);
+    background:var(--card-bg);
+    color:var(--text);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.project-actions button:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+}
+
 
 

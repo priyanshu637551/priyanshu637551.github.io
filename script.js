@@ -18,7 +18,8 @@ const colorsDark = ['#4285F4','#EA4335','#FBBC05','#34A853'];
 const colorsLight = ['#1a73e8','#ea4335','#fbbc05','#34a853'];
 
 let particles = [];
-for(let i=0;i<300;i++){
+const PARTICLE_COUNT = 450;
+for(let i=0;i<PARTICLE_COUNT;i++){
     particles.push({
         x: Math.random()*canvas.width,
         y: Math.random()*canvas.height,

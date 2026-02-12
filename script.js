@@ -76,3 +76,62 @@ window.addEventListener('load',()=>{
     }
 });
 
+document.addEventListener("DOMContentLoaded",()=>{
+
+const projectModal = document.getElementById("projectModal");
+const projectTitle = document.getElementById("projectTitle");
+const projectContent = document.getElementById("projectContent");
+const repoLink = document.getElementById("repoLink");
+const closeProject = document.getElementById("closeProject");
+
+const readmes = {
+    swiggy: `
+    <h3>Overview</h3>
+    <p>Exploratory Data Analysis on Swiggy sales data.</p>
+    <ul>
+        <li>Cleaned and processed large dataset</li>
+        <li>Visualized trends using Python</li>
+        <li>Identified revenue drivers</li>
+    </ul>
+    <h3>Tech Stack</h3>
+    <p>Python, Pandas, Matplotlib, Seaborn</p>
+    `,
+
+    student: `
+    <h3>Overview</h3>
+    <p>Machine learning model predicting student productivity & burnout.</p>
+    <ul>
+        <li>Data preprocessing</li>
+        <li>Feature engineering</li>
+        <li>Model training & evaluation</li>
+    </ul>
+    <h3>Algorithms Used</h3>
+    <p>Logistic Regression, Random Forest</p>
+    `
+};
+
+const repos = {
+    swiggy: "https://github.com/priyanshu637551/Swiggy_sales_analysis",
+    student: "https://github.com/priyanshu637551/Student-Burnout-and-Productivity-predictor"
+};
+
+document.querySelectorAll(".openProject").forEach(btn=>{
+    btn.addEventListener("click",(e)=>{
+        e.preventDefault();
+        const key = btn.dataset.readme;
+
+        projectTitle.textContent = btn.dataset.title;
+        projectContent.innerHTML = readmes[key];
+        repoLink.href = repos[key];
+
+        projectModal.style.display="flex";
+    });
+});
+
+closeProject.addEventListener("click",()=>{
+    projectModal.style.display="none";
+});
+
+});
+
+

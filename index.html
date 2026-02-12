@@ -28,12 +28,18 @@
 
     <div class="card">
         <h2>Projects</h2>
+            <a href="#" class="openProject" 
+           data-title="Swiggy Sales Analysis"
+                   data-readme="swiggy">
+                   View Project
+            </a>
 
-        <p>Swiggy Sales Analysis</p>
-        <a href="https://github.com/priyanshu637551/Swiggy_sales_analysis" target="_blank">View Project</a>
+            <a href="#" class="openProject"
+               data-title="Student Productivity Predictor"
+               data-readme="student">
+               View Project
+            </a>
 
-        <p style="margin-top:20px;">Student Productivity Predictor</p>
-        <a href="https://github.com/priyanshu637551/Student-Burnout-and-Productivity-predictor" target="_blank">View Project</a>
     </div>
 
     <div class="card">
@@ -81,6 +87,19 @@
         </div>
     </div>
 </div>
+<div id="projectModal" class="modal">
+    <div class="modal-content project-card">
+        <h2 id="projectTitle"></h2>
+
+        <div id="projectContent" class="project-content"></div>
+
+        <div class="project-actions">
+            <a id="repoLink" target="_blank">View on GitHub</a>
+            <button id="closeProject">Close</button>
+        </div>
+    </div>
+</div>
+
 <script src="script.js"></script>
 <script src="drawer.js"></script>
 </body>
